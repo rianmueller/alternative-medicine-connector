@@ -1,10 +1,10 @@
 # alternative-medicine-connector
 
-> A PWA website for connecting patients with alternative medicines and dispensaries
+> A PWA for connecting patients with alternative medicines and dispensaries
 
 ## Introduction
 
-Build a personal web app using:
+Build a progressive web app using:
 
 - **Backend**
 
@@ -32,18 +32,28 @@ The instructors will provide a tech lead role, and will need to approve design a
 
 #### Unauthenticated user
 
-- Home page should list products by dispensary and by condition
-- Home page should provide a way to filter by dispensary and by condition
+- Home page should list products by dispensary or location and by condition
+- Home page should provide a way to filter by location and by condition
 - Home page should show a subset of key details of the products, along with one image.
-- Home page should have a login button.
+- Home page should have a login button and register path.
 
 #### Authenticated User
 
 - Should be able to view the same home page and details that an unauthenticated user can.
-- Should be able to chat or email with dispensaries and their own doctors or therapists.
-- 
-- `User` home page should contain: - A way to add new `Items`. - A way to logout. - display the current `Users` name - List view of **published** `Items`. - List view of **sold** `Items`.
-- Add new `Item` should present the `User` with a form to add all `Item` details. - A newly added `Item` should have a status of **published** when created. - The form should provide validation and feedback if inputs in omitted or invalid. - Should be able to select an image and upload it for the `Item`.
+- Should be able to initiate chat or email with registered dispensaries and with their own doctors or therapists.
+- Should be able to save favorite products.
+- Should be able to update their password.
+- Should be able to logout.
+
+#### Authenticated Vendor
+
+- Should be able to view the same home page and details that an unauthenticated user can.
+- Should be able to update their password and logout.
+- Should be able to receive chats from and respond to registered users.
+- Should be able to create and update a dispensary profile.
+- Should be able to create and update dispensary inventory.
+
+- Add new `Item` should present the `User` with a form to add all `Item` details. - A newly added `Item` should have a status of **published** when created. - The form should provide validation and feedback if inputs omitted or invalid. - Should be able to select an image and upload it for the `Item`.
 - `Item` detail owned by `User`: - Should be able to modify all inputs. - Change the _Status_ of the `Item`. **published** or **sold** - Should be able to replace the image associated with the `Item`.
 - When an `Item` is published it should record the **publish** date and time.
 - When an `Item` is modified it should record the **update** date and time.
