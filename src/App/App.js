@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Yoyo</h1>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {}
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>Yoyo</h1>
+        </header>
+      </div>
+    )
+  }
 }
 
 export default App;
