@@ -99,7 +99,7 @@ app.use(decorator);
 // app.use("/api/auth", api.auth);
 
 app.get("/smoke", (req, res) => {
-  return res.send("Smoke");
+  return res.send("Smoke smoke");
 });
 
 app.listen(PORT, () => {
