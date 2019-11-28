@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import './App.css';
 import Header from '../containers/Header/Header';
 
@@ -19,8 +19,6 @@ class App extends Component {
   }
 }
 
-<<<<<<< HEAD
-=======
 const mapStateToProps = () => {
   console.log('[App.js] mapStateToProps');
   return {}
@@ -35,5 +33,4 @@ App = connect(
   mapDispatchToProps
 )(App);
 
->>>>>>> 8e3db8dbd63f106ec06e59a808d8f3737f9a29d8
 export default App;
