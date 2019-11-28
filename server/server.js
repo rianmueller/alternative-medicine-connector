@@ -98,8 +98,8 @@ app.use(decorator);
 // app.use("/api/users", api.users);
 // app.use("/api/auth", api.auth);
 
-app.get("/smoken", (req, res) => {
-  return res.send("Test update 2");
+app.get("/smoke", (req, res) => {
+  return res.send("Smoke");
 });
 
 app.listen(PORT, () => {
