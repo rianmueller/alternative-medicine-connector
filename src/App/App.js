@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import './App.css';
+import React, { Component } from "react";
+// import { connect } from 'react-redux';
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {};
   }
 
   render() {
@@ -15,8 +15,9 @@ class App extends Component {
           <h1>Yoyo</h1>
         </header>
       </div>
-    )
+    );
   }
 }
 
-export default connect(App);
+// export default connect(App);
+export default App;
