@@ -8,13 +8,13 @@ const RedisStore = require("connect-redis")(session);
 
 const api = require("./api/index");
 
-require("dotenv").config();
+require("dotenv").config({ path: "../.env" });
 //
-// const PORT = process.env.EXPRESS_HOST_PORT;
-// const SESSION_SECRET = process.env.SESSION_SECRET;
-// const REDIS_HOSTNAME = process.env.REDIS_HOSTNAME;
+const PORT = process.env.EXPRESS_HOST_PORT;
+const SESSION_SECRET = process.env.SESSION_SECRET;
+const REDIS_HOSTNAME = process.env.REDIS_HOSTNAME;
 
-const PORT = process.env.PORT || 8080;
+// const PORT = process.env.PORT || 8080;
 
 if (!PORT) {
   console.log("No Port Found");
@@ -31,6 +31,10 @@ if (!PORT || !SESSION_SECRET || !REDIS_HOSTNAME) {
 //
 let client = redis.createClient({ url: process.env.REDIS_HOSTNAME });
 const app = express();
+
+app.use("/api/habits", api.habits);
+app.use("/api/users", api.users);
+app.use("/api/auth", api.auth);
 
 app.use(express.static("./server/public"));
 app.use(bodyParser.json());

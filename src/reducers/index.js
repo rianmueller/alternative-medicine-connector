@@ -2,15 +2,16 @@
 
 const defaultState = {
   //initial states
-  description: ''
-}
+  description: ""
+};
 
 let reducer = (state = defaultState, action) => {
   switch (action.type) {
     // case statement
 
-    default: return state;
+    default:
+      return state;
   }
-}
+};
 
 export default reducer;

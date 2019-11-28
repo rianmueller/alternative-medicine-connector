@@ -12,7 +12,7 @@ exports.up = function(knex) {
       .integer("user_id")
       .references("id")
       .inTable("users")
-      .defaultTo(0);
+      .defaultTo(1);
     table.timestamps(true, true);
   });
 };
