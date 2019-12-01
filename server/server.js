@@ -82,7 +82,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const decorator = require("./database/decorator");
-// const api = require("./api/index");
+const api = require("./api/index");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -94,12 +94,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(decorator);
 
-// app.use("/api/habits", api.habits);
-// app.use("/api/users", api.users);
-// app.use("/api/auth", api.auth);
+app.use("/api/products", api.products);
+app.use("/api/users", api.users);
+app.use("/api/auth", api.auth);
+app.use("/api/conditions", api.conditions);
+app.use("/api/helpsWith", api.helpsWith);
 
 app.get("/smoke", (req, res) => {
-  return res.send("Smoke smoke");
+  return res.send("Smoke");
 });
 
 app.listen(PORT, () => {

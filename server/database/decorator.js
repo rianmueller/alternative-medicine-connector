@@ -3,6 +3,7 @@ const User = require("./models/User");
 const Product = require("./models/Product");
 const Flavor = require("./models/Flavor");
 const Species = require("./models/Species");
+const HelpsWith = require("./models/HelpsWith");
 
 module.exports = function(req, res, next) {
   req.db = {
@@ -10,7 +11,8 @@ module.exports = function(req, res, next) {
     User,
     Product,
     Flavor,
-    Species
+    Species,
+    HelpsWith
   };
   next();
 };

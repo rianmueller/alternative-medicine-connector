@@ -1,7 +1,10 @@
 exports.up = function(knex) {
   return knex.schema.createTable("products", table => {
     table.increments();
-    table.string("name").notNullable();
+    table
+      .string("name")
+      .unique()
+      .notNullable();
     table.string("url");
     table.string("type");
     table.string("helps_with");
