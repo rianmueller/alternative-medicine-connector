@@ -99,6 +99,7 @@ app.use("/api/users", api.users);
 app.use("/api/auth", api.auth);
 app.use("/api/conditions", api.conditions);
 app.use("/api/helpsWith", api.helpsWith);
+app.use("/api/affectedBy", api.affectedBy);
 
 app.get("/smoke", (req, res) => {
   return res.send("Smoke");

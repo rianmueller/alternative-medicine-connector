@@ -2,14 +2,14 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/smoke", (req, res) => {
-  return res.json({ message: "I see smoke in users." });
+  return res.json({ message: "I see smoke in affectedBy." });
 });
 
 // read
 router.get("/:id", (req, res) => {
-  return req.db.User.where({ id: req.params.id })
+  return req.db.AffectedBy.where({ id: req.params.id })
     .fetch({
-      withRelated: ["products", "conditions"]
+      withRelated: ["user", "condition"]
     })
     .then(results => {
       if (results.toJSON().length === 0) {

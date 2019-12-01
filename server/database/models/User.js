@@ -16,6 +16,10 @@ class User extends bookshelf.Model {
   products() {
     return this.hasMany("Product");
   }
+
+  conditions() {
+    return this.belongsToMany("Condition", "affected_by");
+  }
 }
 
 module.exports = bookshelf.model("User", User);
