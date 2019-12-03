@@ -10,11 +10,11 @@ class HelpsWith extends bookshelf.Model {
   }
 
   product() {
-    return this.hasOne("Product", "name", "product_name");
+    return this.hasOne("Product", "id", "product_id");
   }
 
   condition() {
-    return this.hasOne("Condition", "name", "condition_name");
+    return this.hasOne("Condition", "id", "condition_id");
   }
 }
 

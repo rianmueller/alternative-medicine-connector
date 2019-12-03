@@ -3,25 +3,62 @@ const fs = require("fs");
 
 console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~CONSOLE LOG~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-// verify that all product names are unique
-// let productNames = ["Blue God"];
+// creates helps_with seed data using both ids and names for products and conditions
+// let conditions = [
+//   "ADHD",
+//   "Anxiety",
+//   "Appetite Loss",
+//   "Arthritis",
+//   "Back Pain",
+//   "Chronic Pain",
+//   "Concentration",
+//   "Depression",
+//   "Eye Pressure",
+//   "Fatigue",
+//   "Inflammation",
+//   "Insomnia",
+//   "Menstrual Cramps",
+//   "Migraines",
+//   "Mood Swings",
+//   "Muscle Pain",
+//   "Muscle Spasms",
+//   "Nauseous",
+//   "Social Anxiety",
+//   "Stress"
+// ];
+// let associations = [];
 // products.forEach(element => {
-//   if (productNames.indexOf(element.name) !== -1) {
-//     console.log("ERROR ERROR ERROR");
-//     console.log(element.name);
-//   }
-//   if (productNames.indexOf(element.name) === -1) {
-//     productNames.push(element.name);
+//   if (element.helps_with) {
+//     let helpsWith = element.helps_with.split(", ");
+//     for (let i = 0; i < helpsWith.length; i++) {
+//       let pid =
+//         products.findIndex(product => {
+//           return product.name === element.name;
+//         }) + 1;
+//       let cid = conditions.indexOf(helpsWith[i]);
+//       cid++;
+//       let result =
+//         "\n { product_id: " +
+//         pid +
+//         ", condition_id: " +
+//         cid +
+//         // includes names for verification
+//         // ', product_name: "' +
+//         // element.name +
+//         // '", condition_name: "' +
+//         // helpsWith[i] +
+//         // '"' +
+//         " }";
+//       associations.push(result);
+//     }
 //   }
 // });
-// productNames.sort();
-
-// for (let i = 0; i < productNames.length; i++) {
-//   if (productNames[i + 1] === productNames[i]) {
-//     console.log(productNames[i]);
+// fs.writeFile("./assoc.txt", associations, function(err) {
+//   if (err) {
+//     return console.log(err);
 //   }
-// }
-// console.log("Done!");
+//   console.log("The file was saved!");
+// });
 
 // creates helps_with seed data using product name and condition name
 // let associations = [];
@@ -46,6 +83,25 @@ console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~CONSOLE LOG~~~~~~~~~~~~~~~~~~~~~~~~~~");
 //   }
 //   console.log("The file was saved!");
 // });
+
+// verify that all product names are unique
+// let productNames = ["Blue God"];
+// products.forEach(element => {
+//   if (productNames.indexOf(element.name) !== -1) {
+//     console.log("ERROR ERROR ERROR");
+//     console.log(element.name);
+//   }
+//   if (productNames.indexOf(element.name) === -1) {
+//     productNames.push(element.name);
+//   }
+// });
+// productNames.sort();
+// for (let i = 0; i < productNames.length; i++) {
+//   if (productNames[i + 1] === productNames[i]) {
+//     console.log(productNames[i]);
+//   }
+// }
+// console.log("Done!");
 
 // misc
 

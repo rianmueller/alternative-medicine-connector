@@ -9,16 +9,16 @@ class User extends bookshelf.Model {
     return true;
   }
 
-  userStatuses() {
-    return this.belongsTo("Conditions");
-  }
-
-  products() {
-    return this.hasMany("Product");
+  userStatus() {
+    return this.hasOne("UserStatus");
   }
 
   conditions() {
     return this.belongsToMany("Condition", "affected_by");
+  }
+
+  products() {
+    return this.hasMany("Product");
   }
 }
 

@@ -9,10 +9,6 @@ class Product extends bookshelf.Model {
     return true;
   }
 
-  idAttribute() {
-    return "name";
-  }
-
   user() {
     return this.hasOne("User", "id", "user_id");
   }

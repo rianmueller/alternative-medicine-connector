@@ -15,6 +15,7 @@ router.get("/:id", (req, res) => {
       if (results.toJSON().length === 0) {
         throw new Error("Page not found!");
       } else {
+        console.log(results);
         res.json(results);
       }
     })

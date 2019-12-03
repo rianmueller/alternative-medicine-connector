@@ -9,10 +9,6 @@ class Condition extends bookshelf.Model {
     return true;
   }
 
-  idAttribute() {
-    return "name";
-  }
-
   products() {
     return this.belongsToMany("Product", "helps_with");
   }

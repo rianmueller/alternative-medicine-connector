@@ -14,7 +14,7 @@ class AffectedBy extends bookshelf.Model {
   }
 
   condition() {
-    return this.hasOne("Condition", "name", "condition_name");
+    return this.hasOne("Condition", "id", "condition_id");
   }
 }
 
