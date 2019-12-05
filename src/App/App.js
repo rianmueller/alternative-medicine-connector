@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import Header from '../containers/Header/Header';
+import Routes from '../routes/index'
+import {withRouter} from 'react-router'
 
 class App extends Component {
   constructor(props) {
@@ -14,6 +16,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+      <Routes />
       </div>
     )
   }
@@ -33,4 +36,4 @@ App = connect(
   mapDispatchToProps
 )(App);
 
-export default App;
+export default withRouter(App);
