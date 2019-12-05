@@ -9,7 +9,7 @@ class Blog extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://newsapi.org/v2/everything?q=cannibis&apiKey=56d6880c62074bfc9febc75010b7c545')
+    axios.get('https://newsapi.org/v2/everything?q=cannabis&apiKey=56d6880c62074bfc9febc75010b7c545')
       .then(response => {
         this.setState({ posts: response.data.articles })
       })
