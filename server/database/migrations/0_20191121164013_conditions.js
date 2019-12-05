@@ -6,6 +6,7 @@ exports.up = function(knex) {
       .unique()
       .notNullable();
     table.text("description");
+    table.timestamps(true, true);
   });
 };
 

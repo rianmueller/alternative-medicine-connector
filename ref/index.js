@@ -3,7 +3,37 @@ const fs = require("fs");
 
 console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~CONSOLE LOG~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-// creates helps_with seed data using both ids and names for products and conditions
+// creates product seeds
+// let seeds = [];
+// products.forEach(element => {
+//   let seed =
+//     `\n { name: "` +
+//     element.name +
+//     `", url: "` +
+//     element.url +
+//     `", type: "` +
+//     element.type +
+//     `", tastes_like: "` +
+//     element.tastes_like +
+//     `", thc_content: "` +
+//     element.thc_content +
+//     `", cbd_content: "` +
+//     element.cbd_content +
+//     `", user_id: ` +
+//     1 +
+//     ` }`;
+//   console.log(seed);
+//   seeds.push(seed);
+// });
+// console.log(seeds);
+// fs.writeFile("./seeds.txt", seeds, function(err) {
+//   if (err) {
+//     return console.log(err);
+//   }
+//   console.log("The file was saved!");
+// });
+
+// creates helps_with seed data using product id and condition id
 // let conditions = [
 //   "ADHD",
 //   "Anxiety",

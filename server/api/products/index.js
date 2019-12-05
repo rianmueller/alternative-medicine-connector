@@ -2,20 +2,21 @@ const express = require("express");
 const router = express.Router();
 require("passport");
 
-function isAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  } else {
-    return res.send({ message: "You have not been authenticated" });
-  }
-}
-
-router.get("/smoke", (req, res) => {
-  return res.json({ message: "I see smoke in products." });
-});
+// function isAuthenticated(req, res, next) {
+//   if (req.isAuthenticated()) {
+//     return next();
+//   } else {
+//     // return res.redirect("/login.html");
+//     return res.send({ message: "You have not been authenticated" });
+//   }
+// }
 
 // read
 router.get("/:id", (req, res) => {
+  let pid = req.params.id;
+  if (isNaN(parseFloat(pid)) || !isFinite(pid) || pid.includes(".")) {
+    return res.status(500).json({ message: "ID is not an integer" });
+  }
   return req.db.Product.where({ id: req.params.id })
     .fetch({
       withRelated: ["user", "conditions"]
@@ -34,7 +35,7 @@ router.get("/:id", (req, res) => {
 });
 
 // create
-router.post("/", isAuthenticated, (req, res) => {
+router.post("/", (req, res) => {
   return req.db.Product.forge(req.body)
     .save()
     .then(results => {
@@ -63,5 +64,20 @@ router.put("/:id", (req, res) => {
 });
 
 // delete
+router.delete("/:id", (req, res) => {
+  let pid = req.params.id;
+  if (isNaN(parseFloat(pid)) || !isFinite(pid) || pid.includes(".")) {
+    return res.status(500).json({ message: "ID is not an integer" });
+  }
+  return req.db.Product.forge({ id: req.params.id })
+    .fetch()
+    .then(results => {
+      results.destroy();
+      res.json({ message: "Product successfully deleted" });
+    })
+    .catch(err => {
+      res.status(500).json({ message: err.message });
+    });
+});
 
 module.exports = router;
