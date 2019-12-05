@@ -1,21 +1,17 @@
 import React from 'react';
 import styles from './Header.module.css';
 
-
 const header = props => (
   <div className={styles.Container}>
     <div
       className={styles.NavLink}
       onClick={props.navigationHandler}
     >
-      <a href="/">
-        <img
-          src="https://img.icons8.com/material-rounded/48/000000/menu.png"
-          alt="sidebar"
-        />
-      </a>
-      {/* <a href="https://icons8.com/icon/83195/menu">Menu icon by Icons8</a> */}
+      <div className={styles.Bar1}></div>
+      <div className={styles.Bar2}></div>
+      <div className={styles.Bar3}></div>
     </div>
+
     <div className={styles.Logo} href="/home">
       <a href="/">
         <img

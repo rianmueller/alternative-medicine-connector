@@ -6,5 +6,15 @@
   top: 0;
   left: 0;
   margin-top: 70px;
-  width: 15em;
+  width: 17em;
+  text-align: center;
+}
+
+ul {
+  margin-top: 20px;
+}
+
+li {
+  list-style-type: none;
+  margin: 15px 30px 0px 0px;
 }

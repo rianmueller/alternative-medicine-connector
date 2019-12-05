@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './App.css';
 import Header from '../components/Header/Header';
 import Navigation from '../components/Navigation/Navigation';
+import Backdrop from '../components/Backdrop/Backdrop';
 
 class App extends Component {
   constructor(props) {
@@ -17,12 +18,19 @@ class App extends Component {
     this.setState((prevState) => {
       return { navBar: !prevState.navBar }
     })
+  };
+
+  backdropHandler = () => {
+    this.setState({ navBar: false });
   }
 
   render() {
     let navigation;
+    let backdrop;
+
     if (this.state.navBar) {
       navigation = <Navigation />
+      backdrop = <Backdrop click={this.backdropHandler} />
     }
     return (
       <div
@@ -33,6 +41,7 @@ class App extends Component {
           navigationHandler={this.navigationHandler}
         />
         {navigation}
+        {backdrop}
         <main>
           <p>MAIN CONTENT</p>
         </main>

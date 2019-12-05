@@ -16,3 +16,27 @@
 .Register {
   margin-left: 20px;
 }
+
+.burger {
+  cursor: pointer;
+  border: 2px solid black;
+}
+.Bar1, .Bar2, .Bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* .Navlink .Bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.Navlink .Bar2 {opacity: 0;}
+
+.Navlink .Bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+} */
