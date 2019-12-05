@@ -4,6 +4,7 @@ import './App.css';
 import Header from '../components/Header/Header';
 import Navigation from '../components/Navigation/Navigation';
 import Backdrop from '../components/Backdrop/Backdrop';
+import Blog from '../containers/Blog/Blog';
 
 class App extends Component {
   constructor(props) {
@@ -40,11 +41,11 @@ class App extends Component {
         <Header
           navigationHandler={this.navigationHandler}
         />
+        <content>
+          <Blog />
+        </content>
         {navigation}
         {backdrop}
-        <main>
-          <p>MAIN CONTENT</p>
-        </main>
       </div>
     )
   }

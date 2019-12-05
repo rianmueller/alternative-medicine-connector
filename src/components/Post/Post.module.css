@@ -1,0 +1,33 @@
+.Article {
+  height: 220px;
+  width: 880px;
+  margin: 18px auto;
+}
+
+.Article:hover {
+  cursor: pointer;
+  box-shadow: 0 0 5px;
+}
+
+.Image{
+  height: 220px;
+  width: 250px;
+  float:left;
+  margin-right: 25px;
+}
+
+.Title {
+  margin: 10px 0 0 0;
+}
+
+.Title:hover {
+  color: rgb(50, 109, 158);
+}
+
+.Author {
+  margin-bottom: 25px;
+  font-style: italic;
+  color: gray;
+  font-size: 12px;
+}
+
