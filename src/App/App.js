@@ -1,10 +1,12 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import Header from '../components/Header/Header';
 import Navigation from '../components/Navigation/Navigation';
 import Backdrop from '../components/Backdrop/Backdrop';
+import Routes from '../routes/index';
+import {withRouter} from 'react-router';
+
 
 class App extends Component {
   constructor(props) {
@@ -46,6 +48,7 @@ class App extends Component {
         {backdrop}
         <main>
           <p>MAIN CONTENT</p>
+          <Routes/>
         </main>
       </div>
     );
@@ -66,4 +69,4 @@ App = connect(
   mapDispatchToProps
 )(App);
 
-export default App;
+export default withRouter(App);
