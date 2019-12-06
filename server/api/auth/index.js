@@ -13,108 +13,108 @@ const RedisStore = require("connect-redis")(session);
 const dotenv = require("dotenv").config();
 const client = redis.createClient({ url: process.env.REDIS_URL });
 
-// function isAuthenticated(req, res, next) {
-//   if (req.isAuthenticated()) {
-//     return next();
-//   } else {
-//     // return res.redirect("/login.html");
-//     return res.send({ message: "You have not been authenticated" });
-//   }
-// }
+function isAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    // return res.redirect("/login.html");
+    return res.send({ message: "You have not been authenticated" });
+  }
+}
 
-// router.use(
-//   session({
-//     store: new RedisStore({ client }),
-//     secret: process.env.REDIS_SECRET,
-//     resave: false,
-//     saveUninitialized: false
-//   })
-// );
+router.use(
+  session({
+    store: new RedisStore({ client }),
+    secret: process.env.REDIS_SECRET,
+    resave: false,
+    saveUninitialized: false
+  })
+);
 
-// // router.use(passport.initialize());
-// // router.use(passport.session());
+router.use(passport.initialize());
+router.use(passport.session());
 
-// passport.use(
-//   new LocalStrategy(
-//     {
-//       usernameField: "email",
-//       passwordField: "password"
-//     },
-//     function(email, password, done) {
-//       return new User({ email })
-//         .fetch({ require: false })
-//         .then(user => {
-//           if (user === null) {
-//             console.log("user not found");
-//             return done(null, false, { message: "bad username or password" });
-//           } else {
-//             user = user.toJSON();
-//             bcrypt.compare(password, user.password).then(res => {
-//               // Happy route: email exists, password matches
-//               if (res) {
-//                 return done(null, user); // this is the user that goes to serializeUser()
-//               }
-//               // Error Route: email exists, password does not match
-//               else {
-//                 console.log("bad password");
-//                 return done(null, false, {
-//                   message: "bad username or password"
-//                 });
-//               }
-//             });
-//           }
-//         })
-//         .catch(err => {
-//           console.log("error: ", err);
-//           return done(err);
-//         });
-//     }
-//   )
-// );
+passport.use(
+  new LocalStrategy(
+    {
+      usernameField: "email",
+      passwordField: "password"
+    },
+    function(email, password, done) {
+      return new User({ email })
+        .fetch({ require: false })
+        .then(user => {
+          if (user === null) {
+            console.log("user not found");
+            return done(null, false, { message: "bad username or password" });
+          } else {
+            user = user.toJSON();
+            bcrypt.compare(password, user.password).then(res => {
+              // Happy route: email exists, password matches
+              if (res) {
+                return done(null, user); // this is the user that goes to serializeUser()
+              }
+              // Error Route: email exists, password does not match
+              else {
+                console.log("bad password");
+                return done(null, false, {
+                  message: "bad username or password"
+                });
+              }
+            });
+          }
+        })
+        .catch(err => {
+          console.log("error: ", err);
+          return done(err);
+        });
+    }
+  )
+);
 
-// passport.serializeUser(function(user, done) {
-//   console.log("serializing, user: ");
-//   console.log(user);
-//   return done(null, { id: user.id, email: user.email, name: user.name });
-// });
+passport.serializeUser(function(user, done) {
+  console.log("serializing, user: ");
+  console.log(user);
+  return done(null, { id: user.id, email: user.email, name: user.name });
+});
 
-// passport.deserializeUser(function(user, done) {
-//   console.log("deserializing, user: ");
-//   console.log(user);
-//   return done(null, user);
-// });
+passport.deserializeUser(function(user, done) {
+  console.log("deserializing, user: ");
+  console.log(user);
+  return done(null, user);
+});
 
-// router.post("/register", (req, res) => {
-//   bcrypt.genSalt(saltRounds, (err, salt) => {
-//     if (err) {
-//       console.log(err);
-//     } // return 500
-//     bcrypt.hash(req.body.password, salt, (err, hash) => {
-//       if (err) {
-//         console.log(err);
-//       } // return 500
-//       return new User({
-//         name: req.body.name,
-//         email: req.body.email,
-//         password: hash,
-//         user_status_id: 1
-//       })
-//         .save()
-//         .then(user => {
-//           console.log(user);
-//           return res.status(200).json(user);
-//         })
-//         .catch(err => {
-//           console.log(err);
-//           return res.send("Error creating account");
-//         });
-//     });
-//   });
-// });
+router.post("/register", (req, res) => {
+  bcrypt.genSalt(saltRounds, (err, salt) => {
+    if (err) {
+      console.log(err);
+    } // return 500
+    bcrypt.hash(req.body.password, salt, (err, hash) => {
+      if (err) {
+        console.log(err);
+      } // return 500
+      return new User({
+        name: req.body.name,
+        email: req.body.email,
+        password: hash,
+        user_status_id: 1
+      })
+        .save()
+        .then(user => {
+          console.log(user);
+          return res.status(200).json(user);
+        })
+        .catch(err => {
+          console.log(err);
+          return res.send("Error creating account");
+        });
+    });
+  });
+});
 
-// router.use("/login", passport.authenticate("local"), (req, res) => {
-//   return res.json({ session: req.user });
-// });
+router.use("/login", passport.authenticate("local"), (req, res) => {
+  return res.json({ session: req.user });
+});
 
 router.get("/logout", (req, res) => {
   console.log("router GET /logout");
@@ -123,17 +123,18 @@ router.get("/logout", (req, res) => {
   return res.json({ session: {} });
 });
 
+// should dispay your name when you are logged in, undefined when you are not
 router.get("/smoke", (req, res) => {
   console.log("In smoke route");
   console.log(req.user);
-  //   return res.json({ message: "I see smoke in auth." });
   return res.send(`Hello, ${req.user.name}`);
 });
 
-router.get("/secret", (req, res) => {
-  console.log("SECRET");
-  // return res.send("You found the secret");
-  return res.json({ message: "You found the secret" });
+// should display your name when you are logged in, "You have not been authenticated" when you are not
+router.get("/authsmoke", isAuthenticated, (req, res) => {
+  console.log("In authsmoke route");
+  console.log(req.user);
+  return res.send(`Hello, ${req.user.name}`);
 });
 
 module.exports = router;

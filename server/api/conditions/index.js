@@ -1,15 +1,5 @@
 const express = require("express");
 const router = express.Router();
-require("passport");
-
-// function isAuthenticated(req, res, next) {
-//   if (req.isAuthenticated()) {
-//     return next();
-//   } else {
-//     // return res.redirect("/login.html");
-//     return res.send({ message: "You have not been authenticated" });
-//   }
-// }
 
 // read
 router.get("/:id", (req, res) => {
