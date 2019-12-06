@@ -2,7 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const decorator = require("./database/decorator");
-const AccessToken = require('twilio').jwt.AccessToken
+const AccessToken = require("twilio").jwt.AccessToken;
 const VideoGrant = AccessToken.VideoGrant;
 
 require("dotenv").config({ path: "../.env" });
@@ -13,7 +13,7 @@ const REDIS_HOSTNAME = process.env.REDIS_HOSTNAME;
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 
-const twilioclient = require('twilio')(accountSid, authToken);
+const twilioclient = require("twilio")(accountSid, authToken);
 
 if (!PORT) {
   console.log("No Port Found");
@@ -46,18 +46,14 @@ app.use("/api/affectedBy", api.affectedBy);
 
 app.post("/token", (req, res) => {
   const identity = req.body.identity;
-
   const token = new AccessToken(
     process.env.TWILIO_ACCOUNT_SID,
     process.env.TWILIO_API_KEY,
     process.env.TWILIO_API_SECRET
   );
-
   token.identity = identity;
-
-  const grant = new VideoGrant({room:"GreenMeds"});
+  const grant = new VideoGrant({ room: "GreenMeds" });
   token.addGrant(grant);
-
   res.send({
     identity: identity,
     token: token.toJwt()
