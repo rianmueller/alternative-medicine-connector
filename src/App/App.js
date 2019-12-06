@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
@@ -8,6 +9,7 @@ import Backdrop from '../components/Backdrop/Backdrop';
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       navBar: false
     }
@@ -46,7 +48,7 @@ class App extends Component {
           <p>MAIN CONTENT</p>
         </main>
       </div>
-    )
+    );
   }
 }
 
