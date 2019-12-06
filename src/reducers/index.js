@@ -1,16 +1,22 @@
 //import actions here
+import { TOGGLE_NAVIGATION } from '../actions'
 
 const defaultState = {
   //initial states
-  description: ""
-};
+
+  description: '',
+  toggleNavigation: false,
+}
+
 
 let reducer = (state = defaultState, action) => {
   switch (action.type) {
     // case statement
 
-    default:
-      return state;
+    case TOGGLE_NAVIGATION:
+      return Object.assign({}, state, { toggleNavigation: true })
+    default: return state;
+
   }
 };
 

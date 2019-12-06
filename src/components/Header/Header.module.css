@@ -1,0 +1,42 @@
+.Container {
+  background-color: white;
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 90;
+}
+
+.Register {
+  margin-left: 20px;
+}
+
+.burger {
+  cursor: pointer;
+  border: 2px solid black;
+}
+.Bar1, .Bar2, .Bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* .Navlink .Bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.Navlink .Bar2 {opacity: 0;}
+
+.Navlink .Bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+} */
