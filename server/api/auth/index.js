@@ -25,7 +25,7 @@ function isAuthenticated(req, res, next) {
 router.use(
   session({
     store: new RedisStore({ client }),
-    secret: process.env.REDIS_SECRET,
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
   })
