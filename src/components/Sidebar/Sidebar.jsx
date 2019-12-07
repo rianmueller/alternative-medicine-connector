@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './Navigation.module.css';
+import styles from './Sidebar.module.css';
 
-const Navigation = props => (
+const Sidebar = props => (
   <nav className={styles.sideDrawer}>
     <ul>
       <li><a href='/home'>Home</a></li>
@@ -13,4 +13,4 @@ const Navigation = props => (
   </nav>
 )
 
-export default Navigation;
+export default Sidebar;

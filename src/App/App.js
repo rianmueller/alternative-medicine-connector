@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import Header from '../components/Header/Header';
-import Navigation from '../components/Navigation/Navigation';
+import Sidebar from '../components/Sidebar/Sidebar';
 import Backdrop from '../components/Backdrop/Backdrop';
-import Blog from '../containers/Blog/Blog';
+import Articles from '../containers/Articles/Articles';
 
 class App extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class App extends Component {
     let backdrop;
 
     if (this.state.navBar) {
-      navigation = <Navigation />
+      navigation = <Sidebar />
       backdrop = <Backdrop click={this.backdropHandler} />
     }
     return (
@@ -42,7 +42,7 @@ class App extends Component {
           navigationHandler={this.navigationHandler}
         />
         <content>
-          <Blog />
+          <Articles />
         </content>
         {navigation}
         {backdrop}

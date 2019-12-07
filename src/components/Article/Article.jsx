@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './Post.module.css';
+import styles from './Article.module.css';
 
-const post = (props) => (
+const article = (props) => (
   < article className={styles.Article} >
     <img src={props.image} alt="article" className={styles.Image} />
     <h3 className={styles.Title}>{props.title}</h3>
@@ -10,4 +10,4 @@ const post = (props) => (
   </article >
 )
 
-export default post;
+export default article;

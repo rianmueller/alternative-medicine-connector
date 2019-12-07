@@ -18,9 +18,10 @@
 
 .Title {
   margin: 10px 0 0 0;
+  color: rgb(0, 66, 30);
 }
 
 .Title:hover {
-  font-size: 12px;
+  color: rgb(0, 170, 77);
 }
 

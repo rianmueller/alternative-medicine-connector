@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import styles from './Blog.module.css';
-import Post from '../../components/Post/Post';
+import styles from './Articles.module.css';
+import Article from '../../components/Article/Article';
 import axios from 'axios'
 
-class Blog extends Component {
+class Articles extends Component {
   state = {
     posts: []
   }
@@ -17,7 +17,7 @@ class Blog extends Component {
 
   render() {
     const posts = this.state.posts.map(post => {
-      return <Post
+      return <Article
         image={post.urlToImage}
         title={post.title}
         author={post.author}
@@ -26,11 +26,11 @@ class Blog extends Component {
     });
 
     return (
-      <div className={styles.Blog} id="content">
+      <div className={styles.Articles} id="content">
         {posts}
       </div>
     )
   }
 }
 
-export default Blog;
+export default Articles;
