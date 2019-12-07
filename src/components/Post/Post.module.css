@@ -21,13 +21,6 @@
 }
 
 .Title:hover {
-  color: rgb(50, 109, 158);
-}
-
-.Author {
-  margin-bottom: 25px;
-  font-style: italic;
-  color: gray;
   font-size: 12px;
 }
 
