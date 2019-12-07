@@ -18,6 +18,7 @@ class Articles extends Component {
   render() {
     const posts = this.state.posts.map(post => {
       return <Article
+        // key={index}
         image={post.urlToImage}
         title={post.title}
         author={post.author}
