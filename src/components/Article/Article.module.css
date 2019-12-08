@@ -1,0 +1,46 @@
+.Article {
+  height: 220px;
+  width: 880px;
+  margin: 18px auto;
+}
+
+.Article:hover {
+  cursor: pointer;
+  box-shadow: 0 0 5px;
+}
+
+.Image{
+  height: 220px;
+  width: 250px;
+  float:left;
+  margin-right: 25px;
+}
+
+.Title {
+  color: black;
+  margin: 10px 0 -20px 0;
+  line-height: 25px;
+  font-size: 30px;
+}
+
+.Title:hover {
+  color: rgb(57, 168, 71);
+}
+
+.Author {
+  margin-bottom: 15px;
+  color: gray;
+}
+
+.Source {
+  border: outset;
+  padding: 2px;
+  color:white;
+  background-color: rgb(49, 152, 63);
+  border-radius: 5px;
+}
+
+.Content {
+  color: black;
+  font-weight: normal;
+}
