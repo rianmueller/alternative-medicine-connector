@@ -5,30 +5,31 @@ import axios from 'axios'
 
 class Articles extends Component {
   state = {
-    posts: []
+    articles: []
   }
 
   componentDidMount() {
     axios.get('https://newsapi.org/v2/everything?q=cannabis&apiKey=56d6880c62074bfc9febc75010b7c545')
       .then(response => {
-        this.setState({ posts: response.data.articles })
+        this.setState({ articles: response.data.articles })
       })
   }
 
   render() {
-    const posts = this.state.posts.map(post => {
+    const articles = this.state.articles.map(article => {
       return <Article
-        // key={index}
-        image={post.urlToImage}
-        title={post.title}
-        author={post.author}
-        content={post.content}
+        image={article.urlToImage}
+        title={article.title}
+        author={article.author}
+        content={article.content}
+        name={article.source.name}
+        url={article.url}
       />;
     });
 
     return (
       <div className={styles.Articles} id="content">
-        {posts}
+        {articles}
       </div>
     )
   }

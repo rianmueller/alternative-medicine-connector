@@ -5,6 +5,7 @@ import Header from '../components/Header/Header';
 import Sidebar from '../components/Sidebar/Sidebar';
 import Backdrop from '../components/Backdrop/Backdrop';
 import Articles from '../containers/Articles/Articles';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -34,19 +35,16 @@ class App extends Component {
       backdrop = <Backdrop click={this.backdropHandler} />
     }
     return (
-      <div
-        className="App"
-        style={{ height: '100%' }}
-      >
-        <Header
-          navigationHandler={this.navigationHandler}
-        />
-        <content>
-          <Articles />
-        </content>
-        {navigation}
-        {backdrop}
-      </div>
+      <Router>
+        <main className="App">
+          <Header navigationHandler={this.navigationHandler} />
+          {navigation}
+          {backdrop}
+          <Route exact path="/articles">
+            <Articles />
+          </Route>
+        </main>
+      </Router>
     )
   }
 }

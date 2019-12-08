@@ -17,11 +17,30 @@
 }
 
 .Title {
-  margin: 10px 0 0 0;
-  color: rgb(0, 66, 30);
+  color: black;
+  margin: 10px 0 -20px 0;
+  line-height: 25px;
+  font-size: 30px;
 }
 
 .Title:hover {
-  color: rgb(0, 170, 77);
+  color: rgb(57, 168, 71);
 }
 
+.Author {
+  margin-bottom: 15px;
+  color: gray;
+}
+
+.Source {
+  border: outset;
+  padding: 2px;
+  color:white;
+  background-color: rgb(49, 152, 63);
+  border-radius: 5px;
+}
+
+.Content {
+  color: black;
+  font-weight: normal;
+}
