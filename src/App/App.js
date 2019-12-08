@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import Header from '../components/Header/Header';
-import Navigation from '../components/Navigation/Navigation';
+import Sidebar from '../components/Sidebar/Sidebar';
 import Backdrop from '../components/Backdrop/Backdrop';
+import Articles from '../containers/Articles/Articles';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Routes from '../routes/index';
 import {withRouter} from 'react-router';
-
 
 class App extends Component {
   constructor(props) {
@@ -33,25 +34,24 @@ class App extends Component {
     let backdrop;
 
     if (this.state.navBar) {
-      navigation = <Navigation />
+      navigation = <Sidebar />
       backdrop = <Backdrop click={this.backdropHandler} />
     }
     return (
-      <div
-        className="App"
-        style={{ height: '100%' }}
-      >
-        <Header
-          navigationHandler={this.navigationHandler}
-        />
-        {navigation}
-        {backdrop}
-        <main>
-          <p>MAIN CONTENT</p>
-          <Routes/>
+      <Router>
+        <main className="App">
+          <Header navigationHandler={this.navigationHandler} />
+          {navigation}
+          {backdrop}
+          <Route exact path="/articles">
+            <Articles />
+          </Route>
+          <Route exact path="/chat">
+            <Routes/>
+          </Route>
         </main>
-      </div>
-    );
+      </Router>
+    )
   }
 }
 

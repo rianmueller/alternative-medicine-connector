@@ -23,12 +23,9 @@ const header = props => (
       {/* <a href="https://icons8.com/icon/114318/cannabis">Cannabis icon by Icons8</a> */}
     </div>
     <div className={styles.Auth}>
-      <a className={styles.Login} href="/login">
-        Login
-          </a>
-      <a className={styles.Register} href="/register">
-        Register
-          </a>
+      <a className={styles.User} href="/user">
+        User
+      </a>
     </div>
   </div>
 )
