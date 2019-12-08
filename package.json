@@ -28,7 +28,9 @@
     "redis": "^2.8.0",
     "redis-server": "^1.2.2",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "twilio": "^3.38.0",
+    "twilio-video": "^1.20.0"
   },
   "scripts": {
     "start": "react-scripts start",

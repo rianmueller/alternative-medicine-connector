@@ -6,10 +6,13 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import Backdrop from '../components/Backdrop/Backdrop';
 import Articles from '../containers/Articles/Articles';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Routes from '../routes/index';
+import {withRouter} from 'react-router';
 
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       navBar: false
     }
@@ -43,6 +46,9 @@ class App extends Component {
           <Route exact path="/articles">
             <Articles />
           </Route>
+          <Route exact path="/chat">
+            <Routes/>
+          </Route>
         </main>
       </Router>
     )
@@ -63,4 +69,4 @@ App = connect(
   mapDispatchToProps
 )(App);
 
-export default App;
+export default withRouter(App);
