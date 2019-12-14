@@ -25,10 +25,17 @@ const WaitingRoom = () => {
   };
 
   return (
-    <div>
+    <> 
+    <div className={styles.imgContainer}>
+    <h1 className={styles.imgTxt}>Speak with one of our professionals to see if medical marijuana is right for you!</h1>
+          <img className={styles.doctor} src="https://steemitimages.com/DQmdCKm8WtnxjXpU8MG1HyWkkZ2jRmDZVpD7SYWtLp8dYCK/Image%203.jpg" />
+        
+    </div>
+    <div className={styles.container}>
       {!showVideo ? <h2 className={styles.hello}>Waiting Room</h2> : null}
 
       {!showVideo ? (
+        
         <form onSubmit={handleSubmit}>
           <h3 className={styles.name}>Display Name:</h3>
           <input
@@ -43,6 +50,7 @@ const WaitingRoom = () => {
         <VideoRoom token={token} />
       )}
     </div>
+    </>
   );
 };
 
