@@ -5,7 +5,7 @@ import Articles from '../containers/Articles'
 
 export const routes = [
   {
-    path: "/waitingroom",
+    path: "/chat",
     exact: true,
     component: WaitingRoom
   },
