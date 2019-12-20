@@ -7,7 +7,7 @@ const VideoRoom = ({ token }) => {
   const remoteMediaRef = useRef();
 
   useEffect(() => {
-    Video.connect(token, { video: true, audio: true, name: "GreenMeds" }).then(
+    Video.connect(token, { video: {width:640}, audio: true, name: "GreenMeds" }).then(
       room => {
         console.log(`Connected to Room: ${room.name}`);
         Video.createLocalVideoTrack().then(track => {
@@ -51,9 +51,11 @@ const VideoRoom = ({ token }) => {
 
   return (
     <>
-      <h1 className={styles.hello}>Hello Muthfaka</h1>
-      <div ref={localMediaRef} />
-      <div ref={remoteMediaRef} />
+      <h1 className={styles.hello}>Let's get chatting!</h1>
+      <div className={styles.vidContainer}>
+      <div className={styles.localVid} ref={localMediaRef} />
+      <div className={styles.remoteVid} ref={remoteMediaRef} />
+      </div>
       <button type="submit" onClick={handleDisconnect}>
         disconnect
       </button>

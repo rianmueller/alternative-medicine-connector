@@ -1,12 +1,18 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import WaitingRoom from "../components/WaitingRoom";
+import Articles from '../containers/Articles'
 
 export const routes = [
   {
-    path: "/waitingroom",
+    path: "/chat",
     exact: true,
     component: WaitingRoom
+  },
+  {
+    path: '/articles',
+    exact:true,
+    component: Articles
   }
 ];
 
