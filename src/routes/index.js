@@ -1,7 +1,8 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import WaitingRoom from "../components/WaitingRoom";
-import Articles from '../containers/Articles'
+import Articles from "../containers/Articles";
+import Register from "../components/Register";
 
 export const routes = [
   {
@@ -10,9 +11,14 @@ export const routes = [
     component: WaitingRoom
   },
   {
-    path: '/articles',
-    exact:true,
+    path: "/articles",
+    exact: true,
     component: Articles
+  },
+  {
+    path: "/register",
+    exact: true,
+    component: Register
   }
 ];
 
