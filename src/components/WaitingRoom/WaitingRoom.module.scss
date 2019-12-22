@@ -1,3 +1,64 @@
 .hello{
     color: white;
 }
+.name{
+    color: whitesmoke;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(67, 160, 71);
+    margin: 15px auto;
+    padding: 30px;
+    align-items: center;
+    width: fit-content;
+}
+form{
+    width: 50%;
+    padding-bottom: 15px;
+}
+
+input{
+    padding: 5px 10px;
+    background: none;
+    border: 1px solid lightgray;
+    color: whitesmoke;
+    background-color: #282c34;
+    margin-bottom: 10px;
+}
+ button{
+     margin-left: 10px;
+     border: 0;
+    color: white;
+    font-size: 20px;
+     background: #282c34;
+ }
+
+ button:hover{
+     background-color: white;
+     color: rgb(67, 160, 71);
+ }
+
+ h2{
+     color: white;
+     margin: 50px 0 0 0 ;
+ }
+
+ .imgContainer{
+     width: 70%;
+     position: relative;
+     text-align: center;
+     margin: 0 auto 0 auto;
+ }
+
+ .imgTxt{
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%,-50%);
+    color: #88c88d;
+ }
+
+ .doctor{
+     width: 100%;
+ }
