@@ -1,0 +1,26 @@
+.Study {
+  cursor: pointer;
+  box-shadow: 0 0 3px;
+  margin: 20px 50px;
+  width: 330px;
+}
+
+.Study:hover {
+  box-shadow: 0 0 10px;
+}
+
+.Container {
+  padding:30px;
+}
+
+.Name, .Content {
+  color: black;
+}
+
+.Condition {
+  color: black;
+  position: relative;
+  border: outset;
+  padding: 8px;
+  border-radius: 5px;
+}

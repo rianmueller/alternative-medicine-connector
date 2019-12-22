@@ -7,7 +7,8 @@ import Backdrop from '../components/Backdrop/Backdrop';
 import Articles from '../containers/Articles/Articles';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Routes from '../routes/index';
-import {withRouter} from 'react-router';
+import { withRouter } from 'react-router';
+import Studies from '../containers/Studies/Studies';
 
 class App extends Component {
   constructor(props) {
@@ -47,7 +48,10 @@ class App extends Component {
             <Articles />
           </Route>
           <Route exact path="/chat">
-            <Routes/>
+            <Routes />
+          </Route>
+          <Route exact path="/studies">
+            <Studies />
           </Route>
         </main>
       </Router>

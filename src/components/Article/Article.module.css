@@ -1,6 +1,6 @@
 .Article {
   height: 220px;
-  width: 880px;
+  width: 90%;
   margin: 18px auto;
 }
 
@@ -19,7 +19,7 @@
 .Title {
   color: black;
   margin: 10px 0 -20px 0;
-  line-height: 25px;
+  line-height: 30px;
   font-size: 30px;
 }
 
