@@ -7,7 +7,8 @@ import Backdrop from '../components/Backdrop/Backdrop';
 
 import { BrowserRouter as Router} from "react-router-dom";
 import Routes from '../routes/index';
-import {withRouter} from 'react-router';
+import { withRouter } from 'react-router';
+import Studies from '../containers/Studies/Studies';
 
 class App extends Component {
   constructor(props) {
@@ -43,7 +44,16 @@ class App extends Component {
           <Header navigationHandler={this.navigationHandler} />
           {navigation}
           {backdrop}
-            <Routes/>
+          <Route exact path="/articles">
+            <Articles />
+          </Route>
+          <Route exact path="/chat">
+            <Routes />
+          </Route>
+          <Route exact path="/studies">
+            <Studies />
+          </Route>
+
         </main>
       </Router>
     )
