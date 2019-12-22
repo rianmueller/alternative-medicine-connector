@@ -6,15 +6,15 @@ import {
   actionsOpenLogin,
   actionsSubmitLogout
 } from "../../actions";
+import Register from "../Register/Register";
 
 class Header extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      navBar: false
+      // foo: true
     };
-    console.log("Header constructor");
   }
 
   handleLogout = () => {
@@ -52,11 +52,11 @@ class Header extends Component {
           {/* <a href="https://icons8.com/icon/114318/cannabis">Cannabis icon by Icons8</a> */}
         </div>
         <div className={styles.Auth}>
-          <div className={styles.register} onclick={this.handleRegisterClick}>
-            Register
+          <div className={styles.register} onClick={this.handleRegisterClick}>
+            <a href="/register">Register</a>
           </div>
           <div className={styles.login} onClick={this.handleLoginClick}>
-            Login
+            <a href="/login">Login</a>
           </div>
         </div>
       </div>

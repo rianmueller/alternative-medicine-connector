@@ -20,6 +20,16 @@ export const routes = [
     exact: true,
     component: Register
   }
+  // {
+  //   path: "/login",
+  //   exact: true,
+  //   component: Login
+  // }
+  // {
+  //   path: "/logout",
+  //   exact: true,
+  //   component: Logout
+  // }
 ];
 
 const Routes = () => {

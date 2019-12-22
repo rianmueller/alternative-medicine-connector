@@ -18,12 +18,31 @@
   margin-left: 20px;
 }
 
-.Bar1, .Bar2, .Bar3 {
+.Bar1,
+.Bar2,
+.Bar3 {
   width: 35px;
   height: 5px;
   background-color: white;
   margin: 6px 0;
   transition: 0.4s;
+}
+
+.register {
+  margin-right: 25px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.register:hover {
+  color: white;
+}
+
+.login {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.login:hover {
+  color: white;
 }
 
 /* .Navlink .Bar1 {

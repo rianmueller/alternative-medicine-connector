@@ -29,24 +29,23 @@ export const actionsOpenLogin = () => dispatch => {
 };
 
 export const actionsSubmitRegister = registerInfo => async dispatch => {
-  console.log("Actions Submit Register");
-  let config = {
+  let submission = {
     method: "POST",
     body: JSON.stringify(registerInfo),
     headers: {
       "Content-type": "application/json"
     }
   };
-  await fetch("api/auth/register", config)
+  return fetch("api/auth/register", submission)
     .then(response => {
-      console.log("actionsSubmitRegister got a response from the server");
       return response.json();
     })
     .then(results => {
+      console.log("Results: ", results);
       return dispatch({ type: SUBMIT_REGISTER, payload: results });
     })
     .catch(err => {
-      console.log(err);
+      console.log("Error", err);
       return err;
     });
 };

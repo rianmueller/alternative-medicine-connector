@@ -4,8 +4,9 @@ import "./App.css";
 import Header from "../components/Header/Header";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Backdrop from "../components/Backdrop/Backdrop";
+import Register from "../components/Register/Register";
 
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Routes from "../routes/index";
 import { withRouter } from "react-router";
 
@@ -43,7 +44,10 @@ class App extends Component {
           <Header navigationHandler={this.navigationHandler} />
           {navigation}
           {backdrop}
-          <Routes />
+          {/* <Routes /> */}
+          <Route exact path="/register">
+            <Register />
+          </Route>
         </main>
       </Router>
     );
