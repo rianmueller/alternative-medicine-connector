@@ -6,7 +6,7 @@ import styles from "./Product.module.scss";
 const Product = ({ ...props }) => {
   const { dispatch, product } = props;
   useEffect(() => {
-    dispatch(loadProductAsync(2));
+    dispatch(loadProductAsync(Math.floor(Math.random() * 654)));
   }, [dispatch]);
 
   return (
