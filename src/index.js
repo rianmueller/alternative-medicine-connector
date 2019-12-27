@@ -6,7 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import ReduxThunk from "redux-thunk";
-import reducer from "./reducers";
+import reducer from "./reducers/index";
 import { BrowserRouter as Router } from "react-router-dom";
 
 const composeEnhancers =
