@@ -1,23 +1,10 @@
-//import actions here
-import { TOGGLE_NAVIGATION } from '../actions'
+import { combineReducers} from 'redux';
+import navReducer from './navReducer'
+import productReducer from './productReducer';
 
-const defaultState = {
-  //initial states
+const reducer = combineReducers({
+    nav: navReducer,
+    product: productReducer
+})
 
-  description: '',
-  toggleNavigation: false,
-}
-
-
-let reducer = (state = defaultState, action) => {
-  switch (action.type) {
-    // case statement
-
-    case TOGGLE_NAVIGATION:
-      return Object.assign({}, state, { toggleNavigation: true })
-    default: return state;
-
-  }
-};
-
-export default reducer;
+export default reducer

@@ -39,7 +39,7 @@ app.use(decorator);
 const api = require("./api/index");
 app.use("/api/products", api.products);
 app.use("/api/users", api.users);
-app.use("/api/auth", api.auth);
+// app.use("/api/auth", api.auth);
 app.use("/api/conditions", api.conditions);
 app.use("/api/helpsWith", api.helpsWith);
 app.use("/api/affectedBy", api.affectedBy);

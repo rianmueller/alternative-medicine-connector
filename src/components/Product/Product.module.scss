@@ -1,0 +1,15 @@
+.name {
+  color: black;
+}
+
+.conditions {
+  display: flex;
+
+  p{
+      &:last-of-type{
+          span{
+              display: none;;
+          }
+      }
+  }
+}
