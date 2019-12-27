@@ -2,6 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import WaitingRoom from "../components/WaitingRoom";
 import Articles from '../containers/Articles'
+import Studies from '../containers/Studies'
 
 export const routes = [
   {
@@ -13,6 +14,11 @@ export const routes = [
     path: '/articles',
     exact:true,
     component: Articles
+  },
+  {
+    path: '/studies',
+    exact: true,
+    component: Studies
   }
 ];
 
