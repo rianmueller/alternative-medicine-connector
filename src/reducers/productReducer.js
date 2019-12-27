@@ -9,6 +9,7 @@ const initialState = {
   thc_content: "",
   cbd_content: "",
   user_id: 0,
+  img: '',
   created_at: "",
   updated_at: "",
   user: {

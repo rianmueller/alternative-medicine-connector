@@ -7,12 +7,12 @@ const Product = ({ ...props }) => {
   const { dispatch, product } = props;
   useEffect(() => {
     dispatch(loadProductAsync(Math.floor(Math.random() * 654)));
-  }, [dispatch]);
+}, [dispatch]);
 
   return (
     <>
       <div>
-          <img src="https://medical-marijuana-app.s3-us-west-2.amazonaws.com/Screen+Shot+2019-12-26+at+5.28.36+PM.png" alt="weed"/>
+          <img src={product.img} alt="weed"/>
         <h2 className={styles.name}>{product.name}</h2>
       </div>
 
