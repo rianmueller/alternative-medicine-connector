@@ -8,7 +8,7 @@ import Backdrop from '../components/Backdrop/Backdrop';
 import { BrowserRouter as Router} from "react-router-dom";
 import Routes from '../routes/index';
 import { withRouter } from 'react-router';
-import Studies from '../containers/Studies/Studies';
+
 
 class App extends Component {
   constructor(props) {
@@ -42,18 +42,9 @@ class App extends Component {
       <Router>
         <main className="App">
           <Header navigationHandler={this.navigationHandler} />
+            <Routes />
           {navigation}
           {backdrop}
-          <Route exact path="/articles">
-            <Articles />
-          </Route>
-          <Route exact path="/chat">
-            <Routes />
-          </Route>
-          <Route exact path="/studies">
-            <Studies />
-          </Route>
-
         </main>
       </Router>
     )
