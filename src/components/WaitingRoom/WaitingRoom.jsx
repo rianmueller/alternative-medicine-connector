@@ -19,37 +19,39 @@ const WaitingRoom = () => {
         setToken(token);
         setShowVideo(token);
       })
-      .catch(err => {
-        console.log(err);
-      });
+      .catch(err => {});
   };
 
   return (
-    <> 
-    <div className={styles.imgContainer}>
-    <h1 className={styles.imgTxt}>Speak with one of our professionals to see if medical marijuana is right for you!</h1>
-          <img className={styles.doctor} src="https://steemitimages.com/DQmdCKm8WtnxjXpU8MG1HyWkkZ2jRmDZVpD7SYWtLp8dYCK/Image%203.jpg" />
-        
-    </div>
-    <div className={styles.container}>
-      {!showVideo ? <h2 className={styles.hello}>Waiting Room</h2> : null}
+    <>
+      <div className={styles.imgContainer}>
+        <h1 className={styles.imgTxt}>
+          Speak with one of our professionals to see if medical marijuana is
+          right for you!
+        </h1>
+        <img
+          className={styles.doctor}
+          src="https://steemitimages.com/DQmdCKm8WtnxjXpU8MG1HyWkkZ2jRmDZVpD7SYWtLp8dYCK/Image%203.jpg"
+        />
+      </div>
+      <div className={styles.container}>
+        {!showVideo ? <h2 className={styles.hello}>Waiting Room</h2> : null}
 
-      {!showVideo ? (
-        
-        <form onSubmit={handleSubmit}>
-          <h3 className={styles.name}>Display Name:</h3>
-          <input
-            type="text"
-            value={name}
-            onChange={e => setName(e.target.value)}
-          />
+        {!showVideo ? (
+          <form onSubmit={handleSubmit}>
+            <h3 className={styles.name}>Display Name:</h3>
+            <input
+              type="text"
+              value={name}
+              onChange={e => setName(e.target.value)}
+            />
 
-          <button type="submit">Join Video Chat</button>
-        </form>
-      ) : (
-        <VideoRoom token={token} />
-      )}
-    </div>
+            <button type="submit">Join Video Chat</button>
+          </form>
+        ) : (
+          <VideoRoom token={token} />
+        )}
+      </div>
     </>
   );
 };

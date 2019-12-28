@@ -45,7 +45,6 @@ passport.use(
         .fetch({ require: false })
         .then(user => {
           if (user === null) {
-            console.log("user not found");
             return done(null, false, { message: "bad username or password" });
           } else {
             user = user.toJSON();
@@ -56,7 +55,6 @@ passport.use(
               }
               // Error Route: email exists, password does not match
               else {
-                console.log("bad password");
                 return done(null, false, {
                   message: "bad username or password"
                 });
@@ -65,7 +63,6 @@ passport.use(
           }
         })
         .catch(err => {
-          console.log("error: ", err);
           return done(err);
         });
     }
@@ -73,25 +70,19 @@ passport.use(
 );
 
 passport.serializeUser(function(user, done) {
-  console.log("serializing, user: ");
-  console.log(user);
   return done(null, { id: user.id, email: user.email, name: user.name });
 });
 
 passport.deserializeUser(function(user, done) {
-  console.log("deserializing, user: ");
-  console.log(user);
   return done(null, user);
 });
 
 router.post("/register", (req, res) => {
   bcrypt.genSalt(saltRounds, (err, salt) => {
     if (err) {
-      console.log(err);
     } // return 500
     bcrypt.hash(req.body.password, salt, (err, hash) => {
       if (err) {
-        console.log(err);
       } // return 500
       return new User({
         name: req.body.name,
@@ -101,11 +92,9 @@ router.post("/register", (req, res) => {
       })
         .save()
         .then(user => {
-          console.log(user);
           return res.status(200).json(user);
         })
         .catch(err => {
-          console.log(err);
           return res.send("Error creating account");
         });
     });
@@ -117,23 +106,17 @@ router.use("/login", passport.authenticate("local"), (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-  console.log("router GET /logout");
   req.logout();
-  console.log("logout complete, sending response to front");
   return res.json({ session: {} });
 });
 
 // should dispay your name when you are logged in, undefined when you are not
 router.get("/smoke", (req, res) => {
-  console.log("In smoke route");
-  console.log(req.user);
   return res.send(`Hello, ${req.user.name}`);
 });
 
 // should display your name when you are logged in, "You have not been authenticated" when you are not
 router.get("/authsmoke", isAuthenticated, (req, res) => {
-  console.log("In authsmoke route");
-  console.log(req.user);
   return res.send(`Hello, ${req.user.name}`);
 });
 
