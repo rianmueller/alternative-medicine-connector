@@ -7,54 +7,44 @@ const VideoRoom = ({ token }) => {
   const remoteMediaRef = useRef();
 
   useEffect(() => {
-    Video.connect(token, { video: {width:640}, audio: true, name: "GreenMeds" }).then(
-      room => {
-        console.log(`Connected to Room: ${room.name}`);
-        Video.createLocalVideoTrack().then(track => {
-          localMediaRef.current.appendChild(track.attach());
-        });
-        const addParticipant = participant => {
-          console.log(`${participant.identity}, has entered!`);
-          participant.tracks.forEach(publication => {
-            if (publication.isSubscribed) {
-              const track = publication.track;
-              remoteMediaRef.current.appendChild(track.attach());
-              console.log("Subbed track attached");
-            }
-          });
-          participant.on("trackSubscribed", track => {
+    Video.connect(token, {
+      video: { width: 640 },
+      audio: true,
+      name: "GreenMeds"
+    }).then(room => {
+      Video.createLocalVideoTrack().then(track => {
+        localMediaRef.current.appendChild(track.attach());
+      });
+      const addParticipant = participant => {
+        participant.tracks.forEach(publication => {
+          if (publication.isSubscribed) {
+            const track = publication.track;
             remoteMediaRef.current.appendChild(track.attach());
-            console.log("remote track attached");
-          });
-        };
-        room.participants.forEach(addParticipant);
-        room.on("participantConnected", addParticipant);
-
-        room.on("disconnected", room => {
-          console.log(room);
-          room.localParticipant.tracks.forEach(track => {
-            console.log("track", track);
-            // track.stop;
-            // track.detach();
-            console.log("disconnect");
-          });
+          }
         });
-        // room.disconnect()
-      }
-    );
+        participant.on("trackSubscribed", track => {
+          remoteMediaRef.current.appendChild(track.attach());
+        });
+      };
+      room.participants.forEach(addParticipant);
+      room.on("participantConnected", addParticipant);
+
+      room.on("disconnected", room => {
+        room.localParticipant.tracks.forEach(track => {});
+      });
+    });
   }, [token]);
 
   const handleDisconnect = () => {
-    console.log(Video.LocalVideoTrack);
-    Video.LocalVideoTrack.detach()
+    Video.LocalVideoTrack.detach();
   };
 
   return (
     <>
       <h1 className={styles.hello}>Let's get chatting!</h1>
       <div className={styles.vidContainer}>
-      <div className={styles.localVid} ref={localMediaRef} />
-      <div className={styles.remoteVid} ref={remoteMediaRef} />
+        <div className={styles.localVid} ref={localMediaRef} />
+        <div className={styles.remoteVid} ref={remoteMediaRef} />
       </div>
       <button type="submit" onClick={handleDisconnect}>
         disconnect
@@ -63,4 +53,4 @@ const VideoRoom = ({ token }) => {
   );
 };
 
-export default VideoRoom
+export default VideoRoom;

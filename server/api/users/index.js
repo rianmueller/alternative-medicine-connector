@@ -15,12 +15,10 @@ router.get("/:id", (req, res) => {
       if (results.toJSON().length === 0) {
         throw new Error("Page not found!");
       } else {
-        console.log(results);
         res.json(results);
       }
     })
     .catch(err => {
-      console.log(err);
       return res.json(err);
     });
 });
@@ -45,7 +43,6 @@ router.post("/", (req, res) => {
       return res.json(results);
     })
     .catch(err => {
-      console.log(err);
       return res.json(err);
     });
 });

@@ -37,7 +37,6 @@ router.get("/", (req, res) => {
       res.json(results);
     })
     .catch(err => {
-      console.log(err);
       return res.json(err);
     });
 });
@@ -50,7 +49,6 @@ router.post("/", (req, res) => {
       return res.json(results);
     })
     .catch(err => {
-      console.log(err);
       return res.json(err);
     });
 });
