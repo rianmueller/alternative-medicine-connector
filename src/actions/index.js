@@ -19,9 +19,6 @@ export const loadProductAsync = id => async dispatch => {
         type: LOAD_PRODUCT,
         payload: product
       });
-    })
-    .catch(err => {
-      console.log(err);
     });
 };
 
@@ -35,8 +32,5 @@ export const loadUserAsync = id => async dispatch => {
         type: LOAD_USER,
         payload: user
       });
-    })
-    .catch(err => {
-      console.log(err);
     });
 };
