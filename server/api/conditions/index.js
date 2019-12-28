@@ -23,6 +23,18 @@ router.get("/:id", (req, res) => {
     });
 });
 
+// read all
+router.get("/", (req, res) => {
+  return req.db.Condition.fetchAll({ withRelated: "products" })
+    .then(results => {
+      res.json(results);
+    })
+    .catch(err => {
+      console.log(err);
+      return res.json(err);
+    });
+});
+
 // create
 router.post("/", (req, res) => {
   return req.db.Condition.forge(req.body)

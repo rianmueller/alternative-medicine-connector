@@ -1,0 +1,13 @@
+.Content {
+  width: 100%;
+}
+.SearchBox {
+  text-align:center;
+}
+.Studies {
+  text-align: center;
+  margin: auto 70px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

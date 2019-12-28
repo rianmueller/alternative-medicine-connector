@@ -18,6 +18,7 @@ class Articles extends Component {
   render() {
     const articles = this.state.articles.map(article => {
       return <Article
+        key={article.publishedAt}
         image={article.urlToImage}
         title={article.title}
         author={article.author}
@@ -28,8 +29,16 @@ class Articles extends Component {
     });
 
     return (
-      <div className={styles.Articles} id="content">
-        {articles}
+      <div className={styles.Content}>
+        <div className={styles.BackgroundIMG}>
+          <img
+            className={styles.ImageLogo}
+            src="https://fontmeme.com/permalink/191222/c729af1a4d96c297f05b224ccbd1d033.png" alt="Article"
+          />
+        </div>
+        <div className={styles.Articles} id="content">
+          {articles}
+        </div>
       </div>
     )
   }

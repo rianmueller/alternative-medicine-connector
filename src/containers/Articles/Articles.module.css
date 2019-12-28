@@ -1,8 +1,30 @@
+.Content {
+  width:100%;
+}
 .Articles {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   max-width: 1260px;
   min-width: 980px;
+  margin: 0 auto;
+}
+
+.BackgroundIMG{
+  text-align: center;
+  background-image: url('https://images.unsplash.com/photo-1512691831679-83dfb93bddd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80');
+  background-size: cover;
+  overflow: hidden;
+  color: white;
+}
+
+.ArticleH1 {
+  margin-top: 300px;
+  color: white;
+}
+
+.ImageLogo {
   margin: 100px auto;
+  color: white;
+  width: 44%;
 }

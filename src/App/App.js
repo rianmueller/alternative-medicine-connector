@@ -40,9 +40,9 @@ class App extends Component {
       <Router>
         <main className="App">
           <Header navigationHandler={this.navigationHandler} />
+            <Routes />
           {navigation}
           {backdrop}
-          <Routes />
         </main>
       </Router>
     );
