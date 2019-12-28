@@ -46,9 +46,11 @@ const VideoRoom = ({ token }) => {
         <div className={styles.localVid} ref={localMediaRef} />
         <div className={styles.remoteVid} ref={remoteMediaRef} />
       </div>
-      <button type="submit" onClick={handleDisconnect}>
-        disconnect
-      </button>
+      <div className={styles.Home}>
+        <h2>
+          <a href="/">Disconnect</a>
+        </h2>
+      </div>
     </>
   );
 };
