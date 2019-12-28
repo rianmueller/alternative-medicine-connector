@@ -11,7 +11,7 @@ const WaitingRoom = () => {
   const handleSubmit = event => {
     event.preventDefault();
     axios
-      .post("/token", {
+      .post("/api/token", {
         identity: name
       })
       .then(res => {
